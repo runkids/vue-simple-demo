@@ -1,6 +1,6 @@
 <template>
     <div v-cloak>
-		<div v-if="pageName==='item'">
+		<div v-if="pageName==='item'" class='mainContain'>
             <el-card class="box-card" v-if="itemNum>0">
                 <div slot="header" class="clearfix">
                     <span>剩餘時間：<span :class="{timeTransform:timeNum<=10}">{{timeNum}}</span> 秒</span>
@@ -123,11 +123,6 @@ export default {
     width: 100%;
     display: block;
 }
-body,html {
-    width:50%; 
-    margin: auto;
-    padding: 10px;
-}
 .timeTransform {
     color: red;
 }
@@ -147,5 +142,6 @@ a{
 .startBtnDiv{
     text-align: center;
 }
+
 </style>
 

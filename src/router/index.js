@@ -5,8 +5,8 @@ import App from '../App'
 Vue.use(VueRouter);
 
 const routes = [{
-    path: '/VueEasyDemo',
-    redirect: '/VueEasyDemo/home',
+    path: '/',
+    redirect: 'home',
     component: App,
     children: [{
       	path: 'home',
@@ -20,11 +20,10 @@ const routes = [{
     }]
 },{
 	path: '*',
-	redirect: '/VueEasyDemo'
+	redirect: '/'
 }];
 
 const router = new VueRouter({
-	mode: 'history',
 	routes
 });
 

@@ -1,21 +1,23 @@
 <template>
-    <el-card class="box-card" v-cloak>
-		<div class="innerDiv">
-			<span v-if='status==="exception"?true:false'>未完成作答</span>
-			<span v-else>完成作答</span>
-			<el-progress :stroke-width="10" :percentage="(itemNum/answer.length)*100" :status="status"></el-progress><br/>
-			<div>
-				答對題數：{{countAns===answer.length?"全對了！":countAns}}
-			</div><br/>
-			<div>
-				作答剩餘時間：{{timeNum}}秒
-			</div><br/>
-			<div>
-				<el-rate v-model="startNum" show-text disabled text-color="#4fc08d" :texts="scoreMsg"></el-rate>
-			</div><br/>
-			<el-button class="reBtn" type="warning" icon="el-icon-refresh"  @click="reloadPage" plain>重新測驗</el-button>
-		</div>
-    </el-card>
+	<div class='mainContain'>
+		<el-card class="box-card" v-cloak>
+			<div class="innerDiv">
+				<span v-if='status==="exception"?true:false'>未完成作答</span>
+				<span v-else>完成作答</span>
+				<el-progress :stroke-width="10" :percentage="(itemNum/answer.length)*100" :status="status"></el-progress><br/>
+				<div>
+					答對題數：{{countAns===answer.length?"全對了！":countAns}}
+				</div><br/>
+				<div>
+					作答剩餘時間：{{timeNum}}秒
+				</div><br/>
+				<div>
+					<el-rate v-model="startNum" show-text disabled text-color="#4fc08d" :texts="scoreMsg"></el-rate>
+				</div><br/>
+				<el-button class="reBtn" type="warning" icon="el-icon-refresh"  @click="reloadPage" plain>重新測驗</el-button>
+			</div>
+		</el-card>
+	</div>
 </template>
 
 <script>
