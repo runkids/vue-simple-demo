@@ -1,6 +1,6 @@
 # Vue Simple Demo With Vuex & Vue-router
 
-<img src="https://github.com/runkids/Vue-Firebase-Demo/blob/master/static/demo01.gif?raw=true" width='300px' height='400px'/><br>
+<img src="https://github.com/runkids/vue-simple-demo/blob/master/static/demo01.gif?raw=true" width='300px' height='400px'/><br>
 
 ## 介紹 Introduction
 
