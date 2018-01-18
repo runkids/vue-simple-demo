@@ -12,6 +12,11 @@
 					作答剩餘時間：{{timeNum}}秒
 				</div><br/>
 				<div>
+					<div v-for="(item,index) in andList" :key="index">
+						題目 {{index+1}}：<span :style="{color:item==='O'?'green':'red'}">{{item}}</span>
+					</div>
+				</div><br/>
+				<div>
 					<el-rate v-model="startNum" show-text disabled text-color="#4fc08d" :texts="scoreMsg"></el-rate>
 				</div><br/>
 				<el-button class="reBtn" type="warning" icon="el-icon-refresh"  @click="reloadPage" plain>重新測驗</el-button>
@@ -30,7 +35,8 @@ export default {
 			countAns: 0, //答對題數
 			status:'success',
 			score:0,  //分數
-			startNum:0.2 //星星數量
+			startNum:0.2, //星星數量
+			andList:[]
 		};
 	},
 	name: "score",
@@ -71,9 +77,17 @@ export default {
 		let vm = this;
 		vm.userAnswer.forEach((item, index) => {  //計算對的題數
 			if (item === vm.answer[index]) {
+				this.andList.push('O');
 				vm.countAns++;
+			}else{
+				this.andList.push('X');
 			}
 		});
+		if(this.andList.length!==vm.answer.length){
+			for(let i = this.andList.length ; i <vm.answer.length;i++){
+				this.andList.push(`未選擇`);
+			}
+		}
 		if(vm.userAnswer.length!==vm.answer.length){
 			vm.status="exception"
 		}
